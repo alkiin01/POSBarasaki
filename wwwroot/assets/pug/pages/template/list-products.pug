@@ -1,0 +1,204 @@
+- var theme_customizer      = true;
+- var tooltip               = true;
+- var owlcarousel           = true;
+- var rating                = true;
+- var datatable             = true;
+- var ecommerce             = true;
+- var product_list          = true;
+- var sidebar               = true;
+- var scrollbar             = true;
+
+doctype html
+html(lang='en')
+  include ../../components/header-files
+  body
+    include ../../components/taptop
+    include ../../components/loader
+    // page-wrapper Start
+    #pageWrapper.page-wrapper.compact-wrapper
+      include ../../components/header
+      // Page Body Start
+      .page-body-wrapper
+        include ../../components/sidebar
+        .page-body
+          .container-fluid
+            .page-title
+              .row
+                .col-6
+                  h3
+                    | Product list
+
+                .col-6
+                  ol.breadcrumb
+                    li.breadcrumb-item
+                      a(href='index.html')                                        
+                        i(data-feather="home")
+                    li.breadcrumb-item Ecommerce
+                    li.breadcrumb-item.active Product list
+          // Container-fluid starts
+          .container-fluid.list-products
+            .row
+              // Individual column searching (text inputs) Starts
+              .col-sm-12
+                .card
+                  .card-header.pb-0
+                    h3 Individual column searching (text inputs) 
+                    span
+                      | The searching functionality provided by DataTables is useful for quickly search through the information in the table - however the search is global, and you may wish to present controls that search on specific columns.
+                  .card-body
+                    .table-responsive.product-table
+                      table#basic-1.display
+                        thead
+                          tr
+                            th Image
+                            th Details
+                            th Amount
+                            th Stock
+                            th Start date
+                            th Action
+                        tbody
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img(src='../assets/images/ecommerce/product-table-1.png', alt='')
+                            td
+                              a(href="product-page.html")
+                                h4  Green Jacket 
+                              span Vida Loca - Green Denim Fit Men's Casual Shirt.	
+                            td $10
+                            td.font-success In Stock
+                            td 20/08/2022	
+                            td
+                              button.btn.btn-danger.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Delete
+                              button.btn.btn-primary.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Edit
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img(src='../assets/images/ecommerce/product-table-2.png', alt='')
+                            td
+                              a(href="product-page.html")
+                                h4  Sky Blue Shirt 
+                              p Wild West - Sky Blue Cotton Blend Regular Fit Men's Formal Shirt.	
+                            td $12
+                            td.font-primary Low Stock
+                            td 12/04/2022	
+                            td
+                              button.btn.btn-danger.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Delete
+                              button.btn.btn-primary.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Edit
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img(src='../assets/images/ecommerce/product-table-3.png', alt='')
+                            td
+                              a(href="product-page.html")
+                                h4  White Tshirt 
+                              p aask - White Tshirt Blend Women's Fit & Flare t-shirt.
+                            td $15
+                            td.font-danger out of stock
+                            td 04/08/2022	
+                            td
+                              button.btn.btn-danger.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Delete
+                              button.btn.btn-primary.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Edit
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img(src='../assets/images/ecommerce/product-table-4.png', alt='')
+                            td
+                              a(href="product-page.html")
+                                h4  Black Top 
+                              p R L F - black Cotton Blend Women's A-Line Skirt.	
+                            td $16
+                            td.font-primary Low Stock
+                            td 25/04/2022	
+                            td
+                              button.btn.btn-danger.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Delete
+                              button.btn.btn-primary.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Edit
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img(src='../assets/images/ecommerce/product-table-5.png', alt='')
+                            td
+                              a(href="product-page.html")
+                                h4  Bluegreen Shirt 
+                              p The Dry State - Blue Denim Regular Fit Men's Denim Jacket.
+                            td $29
+                            td.font-success In Stock
+                            td 29/06/2022	
+                            td
+                              button.btn.btn-danger.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Delete
+                              button.btn.btn-primary.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Edit
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img(src='../assets/images/ecommerce/product-table-6.png', alt='')
+                            td
+                              a(href="product-page.html")
+                                h4  Greyblack Shirt
+                              p Vida Loca - Blue Denim Fit Men's Casual Shirt.
+                            td $54
+                            td.font-primary Low Stock
+                            td 05/28/2022
+                            td
+                              button.btn.btn-danger.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Delete
+                              button.btn.btn-primary.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Edit
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img(src='../assets/images/ecommerce/product-table-1.png', alt='')
+                            td
+                              a(href="product-page.html")
+                                h4  Blue Shirt 
+                              p Vida Loca - Blue Denim Fit Men's Casual Shirt.
+                            td $86
+                            td.font-danger out of stock
+                            td 06/21/2022
+                            td
+                              button.btn.btn-danger.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Delete
+                              button.btn.btn-primary.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Edit
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img(src='../assets/images/ecommerce/product-table-2.png', alt='')
+                            td
+                              a(href="product-page.html")
+                                h4  Light Shirt 
+                              p Vida Loca - light Denim Fit Men's Casual Shirt.
+                            td $10
+                            td.font-danger out of stock
+                            td 09/23/2022
+                            td
+                              button.btn.btn-danger.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Delete
+                              button.btn.btn-primary.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Edit
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img(src='../assets/images/ecommerce/product-table-3.png', alt='')
+                            td
+                              a(href="product-page.html")
+                                h4 Greyblack Shirt
+                              p The Dry State - Greyblack Denim Regular Fit Men's Denim Jacket.
+                            td $18
+                            td.font-success In Stock
+                            td 10/25/2022
+                            td
+                              button.btn.btn-danger.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Delete
+                              button.btn.btn-primary.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Edit
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img(src='../assets/images/ecommerce/product-table-4.png', alt='')
+                            td
+                              a(href="product-page.html")
+                                h4  Black Top 
+                              p aask - Black Polyester Blend Women's Fit & Flare top.
+                            td $10
+                            td.font-danger out of stock
+                            td 04/25/2022
+                            td
+                              button.btn.btn-danger.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Delete
+                              button.btn.btn-primary.btn-xs(type='button', data-original-title='btn btn-danger btn-xs', title='') Edit
+              // Individual column searching (text inputs) Ends
+         
+          // Container-fluid Ends
+        include ../../components/footer
+    include ../../components/footer-files

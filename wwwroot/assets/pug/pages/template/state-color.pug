@@ -1,0 +1,54 @@
+- var theme_customizer      = true;
+- var tooltip               = true;
+- var sidebar               = true;
+- var scrollbar             = true;
+
+
+doctype html
+html(lang='en')
+  include ../../components/header-files
+  body
+    include ../../components/taptop
+    include ../../components/loader
+    // page-wrapper Start
+    #pageWrapper.page-wrapper.compact-wrapper
+      include ../../components/header
+      // Page Body Start
+      .page-body-wrapper
+        include ../../components/sidebar
+        .page-body
+          .container-fluid
+            .page-title
+              .row
+                .col-6
+                  h3
+                    | State Color
+
+                .col-6
+                  ol.breadcrumb
+                    li.breadcrumb-item
+                      a(href='index.html')                                        
+                        i(data-feather="home")
+                    li.breadcrumb-item Ui Kits
+                    li.breadcrumb-item.active State Color
+          // Container-fluid starts                    
+          .container-fluid.state-color
+            .row
+              .col-sm-12
+                .card
+                  .card-header.pb-0
+                    h3 Default Color
+                  .card-body
+                    .color-box
+                      button.btn.btn-primary #3e5fce
+                      button.btn.btn-secondary #f73164
+                      button.btn.btn-success #51bb25
+                      button.btn.btn-info #a927f9
+                      button.btn.btn-warning #f8d62b
+                      button.btn.btn-danger #dc3545
+                      button.btn.btn-light #f4f4f4
+                      button.btn.btn-dark #2c323f
+
+          // Container-fluid Ends
+        include ../../components/footer
+    include ../../components/footer-files   

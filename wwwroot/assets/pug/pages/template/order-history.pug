@@ -1,0 +1,441 @@
+- var theme_customizer      = true;
+- var tooltip               = true;
+- var datatable             = true;
+- var page_datatable        = true;
+- var sidebar               = true;
+- var scrollbar             = true;
+
+doctype html
+html(lang='en')
+  include ../../components/header-files
+  body
+    include ../../components/taptop
+    include ../../components/loader
+    // page-wrapper Start
+    #pageWrapper.page-wrapper.compact-wrapper
+      include ../../components/header
+      // Page Body Start
+      .page-body-wrapper
+        include ../../components/sidebar
+        .page-body
+          .container-fluid
+            .page-title
+              .row
+                .col-6
+                  h3
+                    | Recent Orders
+                .col-6
+                  ol.breadcrumb
+                    li.breadcrumb-item
+                      a(href='index.html')                                        
+                        i(data-feather="home")
+                    li.breadcrumb-item Ecommerce
+                    li.breadcrumb-item.active  Recent Orders
+          // Container-fluid starts
+          .container-fluid
+            .row
+              .col-sm-12
+                .card
+                  .card-header.pb-0
+                    h3 Order history
+                  .card-body
+                    .order-history.table-responsive
+                      table#basic-1.table.table-bordernone.display
+                        thead
+                          tr
+                            th(scope='col') Product
+                            th(scope='col') Product name
+                            th(scope='col') Size
+                            th(scope='col') Color
+                            th(scope='col') Article number
+                            th(scope='col') Units
+                            th(scope='col') Price
+                            th(scope='col') Payment Mode
+                            th(scope='col')
+                              i.fa.fa-angle-down
+                        tbody
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/01.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Women's Jacket
+                                .order-process
+                                  span.order-process-circle
+                                  | Processing
+                            td M
+                            td 
+                              span.badge.badge-light-warning White
+                            td 4215738
+                            td 1
+                            td $21
+                            td Credit Card
+                            td
+                              i(data-feather='more-vertical')
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/02.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Denim Jacket
+                                .order-process
+                                  span.order-process-circle
+                                  | Processing
+                            td L 
+                            td
+                              span.badge.badge-light-primary Blue
+                            td 5476182
+                            td 2
+                            td $15
+                            td Bank Transfer
+                            td
+                              i(data-feather='more-vertical')
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/03.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Wonder Skirt
+                                .order-process
+                                  span.order-process-circle
+                                  | Processing
+                            td XL
+                            td 
+                              span.badge.badge-light-danger Red
+                            td 1756457
+                            td 1
+                            td $25
+                            td COD
+                            td
+                              i(data-feather='more-vertical')
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/04.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Roadster
+                                .order-process
+                                  span.order-process-circle.shipped-order
+                                  | Shipped
+                            td M
+                            td
+                              span.badge.badge-light-info Brown
+                            td 7451725
+                            td 2
+                            td $56
+                            td Google Pay
+                            td
+                              i(data-feather='more-vertical')
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/05.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Women T-shirt
+                                .order-process
+                                  span.order-process-circle.shipped-order
+                                  | Shipped
+                            td XL 
+                            td
+                              span.badge.badge-light-info Brown
+                            td 4127421
+                            td 1
+                            td $60
+                            td Credit Card
+                            td
+                              i(data-feather='more-vertical')
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/06.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Fancy Jacket
+                                .order-process
+                                  span.order-process-circle.shipped-order
+                                  | Shipped
+                            td XL 
+                            td 
+                              span.badge.badge-light-warning Light gray
+                            td 3581714
+                            td 1
+                            td $28
+                            td COD
+                            td
+                              i(data-feather='more-vertical')
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/07.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Men's Jacket
+                                .order-process
+                                  span.order-process-circle.shipped-order
+                                  | Shipped
+                            td XXL 
+                            td
+                              span.badge.badge-light-primary Blue
+                            td 6748142
+                            td 1
+                            td $25
+                            td Bank Transfer
+                            td
+                              i(data-feather='more-vertical')
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/08.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Women Trecksuit
+                                .order-process
+                                  span.order-process-circle.cancel-order
+                                  | Cancelled
+                            td L 
+                            td
+                              span.badge.badge-light-success Pink
+                            td 5748214
+                            td 1
+                            td $58
+                            td Credit Card
+                            td
+                              i(data-feather='more-vertical')
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/01.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Women's Jacket
+                                .order-process
+                                  span.order-process-circle.cancel-order
+                                  | Cancelled
+                            td M 
+                            td
+                              span.badge.badge-light-warning White
+                            td 2471254
+                            td 1  
+                            td $36
+                            td Bank Transfer
+                            td
+                              i(data-feather='more-vertical')
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/02.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Denim Jacket
+                                .order-process
+                                  span.order-process-circle.cancel-order
+                                  | Cancelled
+                            td XL
+                            td
+                              span.badge.badge-light-primary Blue
+                            td 8475112
+                            td 1
+                            td $60
+                            td COD
+                            td
+                              i(data-feather='more-vertical')
+            
+
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/03.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Wonder Skirt
+                                .order-process
+                                  span.order-process-circle.shipped-order
+                                  | Shipped
+                            td M
+                            td
+                              span.badge.badge-light-danger Red
+                            td 6748142
+                            td 2
+                            td $29
+                            td Google pay
+                            td
+                              i(data-feather='more-vertical')
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/04.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Roadster
+                                .order-process
+                                  span.order-process-circle.cancel-order
+                                  | Cancelled
+                            td XXL 
+                            td
+                              span.badge.badge-light-info Brown
+                            td 5748214
+                            td 6
+                            td $250
+                            td Bank transfer
+                            td
+                              i(data-feather='more-vertical')
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/05.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Women T-shirt
+                                .order-process
+                                  span.order-process-circle.cancel-order
+                                  | Cancelled
+                            td XL 
+                            td
+                              span.badge.badge-light-info Brown
+                            td 2471254
+                            td 2
+                            td $20
+                            td COD
+                            td
+                              i(data-feather='more-vertical')
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/06.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Fancy Jacket
+                                .order-process
+                                  span.order-process-circle.cancel-order
+                                  | Cancelled
+                            td L 
+                            td
+                              span.badge.badge-light-warning Light gray
+                            td 8475112
+                            td 1
+                            td $15
+                            td Google pay
+                            td
+                              i(data-feather='more-vertical')
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/07.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Men's Jacket
+                                .order-process
+                                  span.order-process-circle
+                                  | Processing
+                            td M
+                            td
+                              span.badge.badge-light-primary Blue
+                            td 4215738
+                            td 1
+                            td $21
+                            td COD
+                            td
+                              i(data-feather='more-vertical')
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/08.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Whomen's trecksuit
+                                .order-process
+                                  span.order-process-circle
+                                  | Processing
+                            td XL 
+                            td
+                              span.badge.badge-light-success Pink
+                            td 5476182
+                            td 1
+                            td $60
+                            td Bank Transfer
+                            td
+                              i(data-feather='more-vertical')
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/01.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Women's Jacket
+                                .order-process
+                                  span.order-process-circle
+                                  | Processing
+                            td XXL 
+                            td
+                              span.badge.badge-light-warning white
+                            td 1756457
+                            td 1
+                            td $59
+                            td Google Pay
+                            td
+                              i(data-feather='more-vertical')
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/02.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Dennim Jacket
+                                .order-process
+                                  span.order-process-circle.shipped-order
+                                  | Shipped
+                            td L
+                            td
+                              span.badge.badge-light-info Brown
+                            td 7451725
+                            td 1
+                            td $30
+                            td Bank Transfer
+                            td
+                              i(data-feather='more-vertical')
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/03.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Wonder Skirt
+                                .order-process
+                                  span.order-process-circle.shipped-order
+                                  | Shipped
+                            td XXL
+                            td
+                              span.badge.badge-light-danger Red
+                            td 4127421
+                            td 1
+                            td $38
+                            td COD
+                            td
+                              i(data-feather='more-vertical')
+                          tr
+                            td
+                              a(href="product-page.html")
+                                img.img-fluid.img-30(src='../assets/images/ecommerce/04.jpg', alt='#')
+                            td
+                              .product-name
+                                a(href='javascript:void(0)') Roadster
+                                .order-process
+                                  span.order-process-circle.shipped-order
+                                  | Shipped
+                            td Xl
+                            td
+                              span.badge.badge-light-warning Light gray
+                            td 3581714
+                            td 1
+                            td $24
+                            td Google Pay
+                            td
+                              i(data-feather='more-vertical')
+          // Container-fluid Ends  
+        include ../../components/footer
+    include ../../components/footer-files

@@ -1,0 +1,115 @@
+- var theme_customizer      = true;
+- var theme_customizer      = true;
+- var touchspin             = true;
+- var sidebar               = true;
+- var scrollbar             = true;
+doctype html
+html(lang='en')
+  include ../../components/header-files
+  body
+    include ../../components/taptop
+    include ../../components/loader
+    // page-wrapper Start
+    #pageWrapper.page-wrapper.compact-wrapper
+      include ../../components/header
+      // Page Body Start
+      .page-body-wrapper
+        include ../../components/sidebar
+        .page-body
+          .container-fluid
+            .page-title
+              .row
+                .col-6
+                  h3
+                    | Cart
+                .col-6
+                  ol.breadcrumb
+                    li.breadcrumb-item
+                      a(href='index.html')                                        
+                        i(data-feather="home")
+                    li.breadcrumb-item Ecommerce
+                    li.breadcrumb-item.active Cart
+
+          // Container-fluid starts
+          .container-fluid
+            .row
+              .col-sm-12
+                .card
+                  .card-header.pb-0
+                    h3 Cart
+                  .card-body
+                    .row
+                      .order-history.table-responsive.wishlist
+                        table.table.table-bordered
+                          thead
+                            tr
+                              th Product
+                              th Product Name
+                              th Price
+                              th Quantity
+                              th Action
+                              th Total
+                          tbody
+                            tr
+                              td
+                                img.img-fluid.img-40(src='../assets/images/ecommerce/01.jpg' alt='#')
+                              td
+                                .product-name
+                                  a(href='javascript:void(0)') 
+                                    h6 Women's Jacket
+                              td $21
+                              td
+                                fieldset.qty-box
+                                  .input-group
+                                    input.touchspin.text-center(type='text' value='5')
+                              td
+                                i(data-feather='x-circle')
+                              td $12456
+                            tr
+                              td
+                                img.img-fluid.img-40(src='../assets/images/ecommerce/02.jpg' alt='#')
+                              td
+                                .product-name
+                                  a(href='javascript:void(0)')
+                                    h6 Denim Jacket
+                              td $50
+                              td
+                                fieldset.qty-box
+                                  .input-group
+                                    input.touchspin.text-center(type='text' value='5')
+                              td
+                                i(data-feather='x-circle')
+                              td $12456
+                            tr
+                              td
+                                img.img-fluid.img-40(src='../assets/images/ecommerce/03.jpg' alt='#')
+                              td
+                                .product-name
+                                  a(href='javascript:void(0)') 
+                                    h6 Wonder Skirt
+                              td $11
+                              td
+                                fieldset.qty-box
+                                  .input-group
+                                    input.touchspin.text-center(type='text' value='5')
+                              td
+                                i(data-feather='x-circle')
+                              td $12456
+                            tr
+                              td(colspan='4')                                            
+                                .input-group
+                                  input.form-control(type='text' placeholder='Enter coupon code')
+                                  a.btn.btn-primary(href='javascript:void(0)') Apply
+                              td.total-amount
+                                h4.m-0.text-end
+                                  span.f-w-600 Total Price :
+                              td
+                                span $6935.00  
+                            tr
+                              td.text-end(colspan='5')
+                                a.btn.btn-secondary.cart-btn-transform(href='product.html') Continue Shopping
+                              td
+                                a.btn.btn-success.cart-btn-transform(href="checkout.html") Check Out
+          // Container-fluid Ends
+        include ../../components/footer
+    include ../../components/footer-files

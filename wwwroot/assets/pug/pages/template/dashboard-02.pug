@@ -1,0 +1,724 @@
+- var chartist              = true;
+- var theme_customizer      = true;
+- var apex                  = true;
+- var dashboard_2           = true;
+- var notify                = true;
+- var animate               = true;
+- var typeahead             = true;
+- var typeahead_search      = true;
+- var sidebar               = true;
+- var scrollbar             = true;
+- var customcard            = true;
+- var clipboard             = true;
+- var prism                 = true;
+- var slick                 = true;
+
+
+
+doctype html
+html(lang='en')
+  include ../../components/header-files
+  body
+    include ../../components/taptop
+    include ../../components/loader
+    // page-wrapper Start
+    #pageWrapper.page-wrapper.compact-wrapper
+      include ../../components/header
+      // Page Body Start
+      .page-body-wrapper
+        include ../../components/sidebar
+        .page-body
+          .container-fluid
+              .page-title
+                .row
+                  .col-6
+                    h3 
+                      | Ecommerce Dashboard
+                  .col-6
+                    ol.breadcrumb
+                      li.breadcrumb-item
+                        a(href='index.html').home-item
+                          i(data-feather="home")
+                      li.breadcrumb-item Dashboard
+                      li.breadcrumb-item.active Ecommerce
+          // Container-fluid starts
+          .container-fluid.ecommerce-page
+            .row       
+              .col-lg-3.col-md-6.col-sm-6
+                .card.sale-chart
+                  .card-body 
+                    .d-flex     
+                      .flex-shrink-0           
+                        .sale-detail
+                          .icon
+                            i(data-feather="shopping-bag")
+                          .sale-content
+                            h3
+                              | Total Sales
+                            p
+                              | 54,750  
+                      #sales-chart.small-chart-view.sales-chart
+              .col-lg-3.col-md-6.col-sm-6
+                .card.sale-chart
+                  .card-body
+                    .d-flex     
+                      .flex-shrink-0          
+                        .sale-detail
+                          .icon
+                            i(data-feather="dollar-sign")
+                          .sale-content
+                            h3
+                              | Total Income
+                            p
+                              | $35,532
+                      #income-chart.small-chart-view.income-chart
+              .col-lg-3.col-md-6.col-sm-6
+                .card.sale-chart
+                  .card-body
+                    .d-flex     
+                      .flex-shrink-0                 
+                        .sale-detail
+                          .icon
+                            i(data-feather="file-text")
+                          .sale-content
+                            h3
+                              | Orders Paid
+                            p
+                              | 55,900  
+                      #order-chart.small-chart-view.order-chart
+              .col-lg-3.col-md-6.col-sm-6
+                .card.sale-chart
+                  .card-body
+                    .d-flex     
+                      .flex-shrink-0                 
+                        .sale-detail
+                          .icon
+                            i(data-feather="users")
+                          .sale-content
+                            h3
+                              | Total Visitor
+                            p
+                              | 67,900
+                      #visitor-chart.small-chart-view.visitor-chart
+              
+              .col-xxl-5.col-xl-4.col-sm-6.box-col-40
+                .card.recent-order
+                  .card-header.pb-0
+                    h3 Recent Orders
+                    .card-header-right
+                      ul.list-unstyled.card-option
+                        li
+                          div
+                            i.icon-settings
+                        li
+                          i.view-html.fa.fa-code
+                        li
+                          i.icofont.icofont-maximize.full-card
+                        li
+                          i.icofont.icofont-minus.minimize-card
+                        li
+                          i.icofont.icofont-refresh.reload-card
+                        li
+                          i.icofont.icofont-error.close-card              
+                  .card-body.pb-0
+                    .medium-chart
+                      #recent-chart.recent-chart
+                    .code-box-copy
+                        button.code-box-copy__btn.btn-clipboard(data-clipboard-target='#recentchart' title='' data-bs-original-title='Copy' aria-label='Copy')
+                          i.icofont.icofont-copy-alt
+                        pre
+                          code.language-html#recentchart
+                            |&lt;div class="card recent-order"&gt;
+                            |  &lt;div class="card-header pb-0"&gt;
+                            |    &lt;h3&gt;Recent Orders&lt;/h3&gt;
+                            |    &lt;div class="card-header-right"&gt;
+                            |      &lt;ul class="list-unstyled card-option"&gt;
+                            |          &lt;li&gt;
+                            |            &lt;div&gt;&lt;i class="icon-settings"&gt;&lt;/i&gt;&lt;/div&gt;
+                            |          &lt;/li&gt;
+                            |          &lt;li&gt;&lt;i class="view-html fa fa-code"&gt;&lt;/i&gt;&lt;/li&gt;
+                            |          &lt;li&gt;&lt;i class="icofont icofont-maximize full-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                            |          &lt;li&gt;&lt;i class="icofont icofont-minus minimize-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                            |          &lt;li&gt;&lt;i class="icofont icofont-refresh reload-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                            |          &lt;li&gt;&lt;i class="icofont icofont-error close-card"&gt; &lt;/i&gt;&lt;/li&gt;
+                            |        &lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="card-body pb-0"&gt;
+                            |      &lt;div class="medium-chart"&gt;
+                            |       &lt;div id="recent-chart"&gt;&lt;/div&gt;
+                            |     &lt;/div&gt;
+                            |   &lt;/div&gt;
+                            | &lt;/div&gt;
+              .col-xl-4.col-sm-6.box-col-30
+                .card.top-products
+                  .card-header.pb-0
+                    h3 Top Products
+                    .card-header-right
+                      ul.list-unstyled.card-option
+                        li
+                          div
+                            i.icon-settings
+                        li
+                          i.view-html.fa.fa-code
+                        li
+                          i.icofont.icofont-maximize.full-card
+                        li
+                          i.icofont.icofont-minus.minimize-card
+                        li
+                          i.icofont.icofont-refresh.reload-card
+                        li
+                          i.icofont.icofont-error.close-card              
+                  .card-body
+                    .table-responsive
+                      table.table.table-bordernone
+                        tbody
+                          tr
+                            td 
+                              .d-flex
+                                .flex-shrink-0
+                                  .icon
+                                    img.img-fluid(src="../assets/images/dashboard-2/chair.png", alt="chair")
+                                .flex-grow-1
+                                  a(href="product-page.html")
+                                    h5 Wood Chair Dark
+                                  p 100 Items
+                            td 
+                              h5 Coupon Code
+                              p PIX001
+                            td.text-center 
+                              i.flag-icon.flag-icon-gb
+                            td 
+                              h5 -51%
+                              p $99.00  
+                          tr
+                            td 
+                              .d-flex
+                                .flex-shrink-0
+                                  .icon
+                                    img.img-fluid(src="../assets/images/dashboard-2/shoes.png", alt="chair")
+                                .flex-grow-1
+                                  a(href="product-page.html")
+                                    h5 Sneaker For Men
+                                  p 150 Items
+                            td 
+                              h5 Coupon Code
+                              p PIX002
+                            td.text-center 
+                              i.flag-icon.flag-icon-us
+                            td 
+                              h5 -78% 
+                              p $66.00  
+                          tr
+                            td 
+                              .d-flex
+                                .flex-shrink-0
+                                  .icon
+                                    img.img-fluid(src="../assets/images/dashboard-2/pot.png", alt="pot")
+                                .flex-grow-1
+                                  a(href="product-page.html")
+                                    h5 Tree Stylish Pot 
+                                  p 105 Items                            
+                            td 
+                              h5 Coupon Code
+                              p PIX003
+                            td.text-center 
+                              i.flag-icon.flag-icon-za
+                            td 
+                              h5 -04%
+                              p $116.00  
+                          tr
+                            td 
+                              .d-flex
+                                .flex-shrink-0
+                                  .icon
+                                    img.img-fluid(src="../assets/images/dashboard-2/purse.png", alt="purse")
+                                .flex-grow-1
+                                  a(href="product-page.html")
+                                    h5 Ulrich Duffel Bag
+                                  p 600 Items                            
+                            td 
+                              h5 Coupon Code
+                              p PIX004
+                            td.text-center 
+                              i.flag-icon.flag-icon-at
+                            td 
+                              h5 -60%
+                              p $99.00  
+                          tr
+                            td 
+                              .d-flex
+                                .flex-shrink-0
+                                  .icon
+                                    img.img-fluid(src="../assets/images/dashboard-2/watch.png", alt="watch")
+                                .flex-grow-1
+                                  a(href="product-page.html")
+                                    h5 Mi Watch Revolve
+                                  p 541 Item                            
+                            td 
+                              h5 Coupon Code
+                              p PIX005
+                            td.text-center 
+                              i.flag-icon.flag-icon-br
+                            td 
+                              h5 -50%
+                              p $58.00  
+                    .code-box-copy
+                        button.code-box-copy__btn.btn-clipboard(data-clipboard-target='#topproduct' title='' data-bs-original-title='Copy' aria-label='Copy')
+                          i.icofont.icofont-copy-alt
+                        pre
+                          code.language-html#topproduct
+                            |&lt;div class="card top-products"&gt;
+                            |  &lt;div class="card-header pb-0"&gt;
+                            |    &lt;h3&gt;Recent Orders&lt;/h3&gt;
+                            |    &lt;div class="card-header-right"&gt;
+                            |      &lt;ul class="list-unstyled card-option"&gt;
+                            |        &lt;li&gt;&lt;div&gt;&lt;i class="icon-settings"&gt;&lt;/i&gt;&lt;/div&gt;&lt;/li&gt;
+                            |        &lt;li&gt;&lt;i class="view-html fa fa-code"&gt;&lt;/i&gt;&lt;/li&gt;
+                            |        &lt;li&gt;&lt;i class="icofont icofont-maximize full-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                            |        &lt;li&gt;&lt;i class="icofont icofont-minus minimize-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                            |        &lt;li&gt;&lt;i class="icofont icofont-refresh reload-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                            |        &lt;li&gt;&lt;i class="icofont icofont-error close-card"&gt; &lt;/i&gt;&lt;/li&gt;
+                            |      &lt;/ul&gt;
+                            |    &lt;/div&gt;
+                            |  &lt;/div&gt;
+                            |&lt;div class="card-body pb-0"&gt;
+                            |    &lt;div class="table-responsive"&gt;
+                            |      &lt;table class="table table-bordernone"&gt;
+                            |        &lt;tbody&gt;
+                            |          &lt;tr&gt;
+                            |            &lt;td&gt;&lt;div class="d-flex"&gt;&lt;div class="flex-shrink-0"&gt;
+                            |                &lt;div class="icon"&gt;
+                            |                  &lt;img class="img-fluid" src="../assets/images/dashboard-2/chair.png" alt="chair"/&gt;&lt;/div&gt;
+                            |                &lt;/div&gt;
+                            |                &lt;div class="flex-grow-1"&gt;
+                            |                  &lt;h5&gt;Wood Chair Dark&lt;/h5&gt;
+                            |                  &lt;p&gt;100 Items&lt;/p&gt;
+                            |                &lt;/div&gt;
+                            |              &lt;/div&gt;
+                            |            &lt;/td&gt;
+                            |            &lt;td&gt;&lt;h5&gt;Coupon Code&lt;/h5&gt;&lt;p&gt;PIX001&lt;/p&gt;&lt;/td&gt;
+                            |            &lt;td class="text-center"&gt; &lt;i class="flag-icon flag-icon-gb"&gt;&lt;/i&gt;&lt;/td&gt;
+                            |            &lt;td&gt; &lt;h5&gt;-51%&lt;/h5&gt;&lt;p&gt;$99.00 &lt;/p&gt;&lt;/td&gt;
+                            |          &lt;/tr&gt;
+                            |          &lt;tr&gt;
+                            |            &lt;td&gt;
+                            |              &lt;div class="d-flex"&gt;
+                            |                &lt;div class="flex-shrink-0"&gt;
+                            |                  &lt;div class="icon"&gt;&lt;img class="img-fluid" src="../assets/images/dashboard-2/shoes.png" alt="chair"/&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="flex-grow-1"&gt;&lt;h5&gt;Sneaker For Men&lt;/h5&gt;&lt;p&gt;150 Items&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+                            |            &lt;/td&gt;
+                            |            &lt;td&gt; &lt;h5&gt;Coupon Code&lt;/h5&gt;&lt;p&gt;PIX002&lt;/p&gt;&lt;/td&gt;&lt;td class="text-center"&gt; &lt;i class="flag-icon flag-icon-us"&gt;&lt;/i&gt;&lt;/td&gt;&lt;td&gt;&lt;h5&gt;-78% &lt;/h5&gt;&lt;p&gt;$66.00 &lt;/p&gt;&lt;/td&gt;
+                            |          &lt;/tr&gt;
+                            |          &lt;tr&gt;
+                            |            &lt;td&gt; &lt;div class="d-flex"&gt;&lt;div class="flex-shrink-0"&gt;&lt;div class="icon"&gt;&lt;img class="img-fluid" src="../assets/images/dashboard-2/pot.png" alt="pot"/&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="flex-grow-1"&gt;&lt;h5&gt;Tree Stylish Pot &lt;/h5&gt;&lt;p&gt;105 Items &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+                            |            &lt;td&gt; &lt;h5&gt;Coupon Code&lt;/h5&gt;&lt;p&gt;PIX003&lt;/p&gt;&lt;/td&gt;
+                            |            &lt;td class="text-center"&gt; &lt;i class="flag-icon flag-icon-za"&gt;&lt;/i&gt;&lt;/td&gt;
+                            |            &lt;td&gt;
+                            |              &lt;h5&gt;-04%&lt;/h5&gt;
+                            |              &lt;p&gt;$116.00 &lt;/p&gt;
+                            |            &lt;/td&gt;
+                            |          &lt;/tr&gt;
+                            |          &lt;tr&gt;
+                            |            &lt;td&gt;
+                            |              &lt;div class="d-flex"&gt;
+                            |                &lt;div class="flex-shrink-0"&gt;
+                            |                  &lt;div class="icon"&gt;&lt;img class="img-fluid" src="../assets/images/dashboard-2/purse.png" alt="purse"/&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="flex-grow-1"&gt;&lt;h5&gt;Ulrich Duffel Bag&lt;/h5&gt;&lt;p&gt;600 Items &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+                            |            lt;td&gt; &lt;h5&gt;Coupon Code&lt;/h5&gt;&lt;p&gt;PIX004&lt;/p&gt;&lt;/td&gt;
+                            |            &lt;td class="text-center"&gt; &lt;i class="flag-icon flag-icon-at"&gt;&lt;/i&gt;&lt;/td&gt;&lt;td&gt;&lt;h5&gt;-60%&lt;/h5&gt;&lt;p&gt;$99.00 &lt;/p&gt;&lt;/td&gt;
+                            |          &lt;/tr&gt;
+                            |          &lt;tr&gt;
+                            |            &lt;td&gt; &lt;div class="d-flex"&gt;&lt;div class="flex-shrink-0"&gt;&lt;div class="icon"&gt;&lt;img class="img-fluid" src="../assets/images/dashboard-2/watch.png" alt="watch"/&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="flex-grow-1"&gt;&lt;h5&gt;Mi Watch Revolve&lt;/h5&gt;&lt;p&gt;541 Item &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+                            |            &lt;td&gt; &lt;h5&gt;Coupon Code&lt;/h5&gt;&lt;p&gt;PIX005&lt;/p&gt;&lt;/td&gt;
+                            |            &lt;td class="text-center"&gt; &lt;i class="flag-icon flag-icon-br"&gt;&lt;/i&gt;&lt;/td&gt;
+                            |            &lt;td&gt;&lt;h5&gt;-50%&lt;/h5&gt;&lt;p&gt;$58.00 &lt;/p&gt;&lt;/td&gt;
+                            |          &lt;/tr&gt;
+                            |        &lt;/tbody&gt;
+                            |        &lt;/table&gt;
+                            |      &lt;/div&gt;
+                            |  &lt;/div&gt;
+                            |&lt;/div&gt;
+              
+              .col-xxl-3.col-xl-4.col-sm-6.box-col-30
+                .card.country-sales-view
+                  .card-header
+                    h3 Sales By Countries
+                    .card-header-right
+                      ul.list-unstyled.card-option
+                        li
+                          div
+                            i.icon-settings
+                        li
+                          i.view-html.fa.fa-code
+                        li
+                          i.icofont.icofont-maximize.full-card
+                        li
+                          i.icofont.icofont-minus.minimize-card
+                        li
+                          i.icofont.icofont-refresh.reload-card
+                        li
+                          i.icofont.icofont-error.close-card
+                  .card-body.p-0
+                    .medium-chart
+                      #country-sales-chart.country-sales-chart
+                    .code-box-copy
+                        button.code-box-copy__btn.btn-clipboard(data-clipboard-target='#contry-sale' title='' data-bs-original-title='Copy' aria-label='Copy')
+                          i.icofont.icofont-copy-alt
+                        pre
+                          code.language-html#contry-sale
+                              |&lt;div class="card country-sales-view"&gt;
+                              |  &lt;div class="card-header"&gt;
+                              |    &lt;h3&gt;Sales By Countries&lt;/h3&gt;
+                              |    &lt;div class="card-header-right"&gt;
+                              |      &lt;ul class="list-unstyled card-option"&gt;
+                              |        &lt;li&gt;&lt;div&gt;&lt;i class="icon-settings"&gt;&lt;/i&gt;&lt;/div&gt;&lt;/li&gt;
+                              |        &lt;li&gt;&lt;i class="view-html fa fa-code"&gt;&lt;/i&gt;&lt;/li&gt;
+                              |        &lt;li&gt;&lt;i class="icofont icofont-maximize full-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                              |        &lt;li&gt;&lt;i class="icofont icofont-minus minimize-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                              |        &lt;li&gt;&lt;i class="icofont icofont-refresh reload-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                              |        &lt;li&gt;&lt;i class="icofont icofont-error close-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                              |      &lt;/ul&gt;
+                              |    &lt;/div&gt;
+                              |  &lt;/div&gt;
+                              | &lt;div class="card-body p-0"&gt;
+                              |   &lt;div class="medium-chart"&gt;
+                              |     &lt;div id="country-sales-chart"&gt;&lt;/div&gt;
+                              |   &lt;/div&gt;
+                              |  &lt;/div&gt;
+                              |&lt;/div&gt;
+              
+              .col-xxl-5.col-xl-4.col-sm-6.box-col-30
+                .card.best-sellers
+                  .card-header.pb-0
+                    h3  Best Sellers
+                    .card-header-right
+                      ul.list-unstyled.card-option
+                        li
+                          div
+                            i.icon-settings
+                        li
+                          i.view-html.fa.fa-code
+                        li
+                          i.icofont.icofont-maximize.full-card
+                        li
+                          i.icofont.icofont-minus.minimize-card
+                        li
+                          i.icofont.icofont-refresh.reload-card
+                        li
+                          i.icofont.icofont-error.close-card
+                  .card-body
+                    .table-responsive
+                        table.table.table-bordernone
+                          thead
+                            tr
+                              th Name
+                              th Date
+                              th Product
+                              th Total
+                              th Status
+                          tbody
+                            tr
+                              td
+                                .d-flex
+                                  .icon
+                                    img.img-fluid(src="../assets/images/dashboard-2/person1.png", alt="person1")
+                                  .flex-grow-1
+                                    a(href="user-profile.html")
+                                      h5 John Keter
+                                    p 2019
+                              td
+                                h5 06 August
+                              td 
+                                
+                                h5 Brande Shoes
+                              td 
+                                h5 $37,618  
+                              td
+                                .status-showcase
+                                  p 65%
+                                  .progress.progress-bg-success(style='height: 5px;')
+                                    .progress-bar(role='progressbar' style='width: 65%' aria-valuenow='50' aria-valuemin='0' aria-valuemax='100')
+                            tr
+                              td
+                                .d-flex
+                                  .icon
+                                    img.img-fluid(src="../assets/images/dashboard-2/person2.png" , alt="person2")
+                                  .flex-grow-1
+                                    a(href="user-profile.html")
+                                      h5 Harry Venter
+                                    p 2020
+                              td
+                                h5 21 March
+                              td 
+                                h5 Headphone
+                              td 
+                                h5 $59,105  
+                              td
+                                .status-showcase
+                                  p 45%
+                                  .progress.progress-bg-warning(style='height: 5px;')
+                                    .progress-bar(role='progressbar' style='width: 45%' aria-valuenow='50' aria-valuemin='0' aria-valuemax='100')
+                            tr
+                              td
+                                .d-flex
+                                  .icon
+                                    img.img-fluid(src="../assets/images/dashboard-2/person3.png" , alt="person3")
+                                  .flex-grow-1
+                                    a(href="user-profile.html")
+                                      h5 Loadin Deo
+                                    p 2020
+                              td
+                                h5 09 March
+                              td 
+                                h5 Cell Phone
+                              td 
+                                h5 $10,155  
+                              td
+                                .status-showcase
+                                  p 85%
+                                  .progress.progress-bg-danger(style='height: 5px;')
+                                    .progress-bar(role='progressbar' style='width: 85%' aria-valuenow='50' aria-valuemin='0' aria-valuemax='100')
+                            tr
+                              td
+                                .d-flex
+                                  .icon
+                                    img.img-fluid(src="../assets/images/dashboard-2/person4.png" , alt="person4")
+                                  .flex-grow-1
+                                    a(href="user-profile.html")
+                                      h5 Horen Hors
+                                    p 2020
+                              td
+                                h5 14 February
+                              td 
+                                h5 Fashion
+                              td 
+                                h5 $90,568
+                              td
+                                .status-showcase
+                                  p 75%
+                                  .progress.progress-bg-info(style='height: 5px;')
+                                    .progress-bar(role='progressbar' style='width: 75%' aria-valuenow='50' aria-valuemin='0' aria-valuemax='100')
+                            tr
+                              td
+                                .d-flex
+                                  .icon
+                                    img.img-fluid(src="../assets/images/dashboard-2/person5.png" , alt="person5")
+                                  .flex-grow-1
+                                    a(href="user-profile.html")
+                                      h5 Fenter Jessy
+                                    p 2020
+                              td
+                                h5 21 January
+                              td 
+                                h5 Bookshop
+                              td 
+                                h5 $10,652
+                              td
+                                .status-showcase
+                                  p 45%
+                                  .progress.progress-bg-warning(style='height: 5px;')
+                                    .progress-bar(role='progressbar' style='width: 45%' aria-valuenow='50' aria-valuemin='0' aria-valuemax='100')
+                    .code-box-copy
+                        button.code-box-copy__btn.btn-clipboard(data-clipboard-target='#bestseller' title='' data-bs-original-title='Copy' aria-label='Copy')
+                          i.icofont.icofont-copy-alt
+                        pre
+                          code.language-html#bestseller
+                            |&lt;div class="card best-sellers"&gt;
+                            |  &lt;div class="card-header pb-0"&gt;
+                            |    &lt;h3&gt; Best Sellers&lt;/h3&gt;
+                            |    &lt;div class="card-header-right"&gt;
+                            |      &lt;ul class="list-unstyled card-option"&gt;
+                            |        &lt;li&gt;&lt;div&gt;&lt;i class="icon-settings"&gt;&lt;/i&gt;&lt;/div&gt;&lt;/li&gt;
+                            |        &lt;li&gt;&lt;i class="view-html fa fa-code"&gt;&lt;/i&gt;&lt;/li&gt;
+                            |        &lt;li&gt;&lt;i class="icofont icofont-maximize full-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                            |        &lt;li&gt;&lt;i class="icofont icofont-minus minimize-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                            |        &lt;li&gt;&lt;i class="icofont icofont-refresh reload-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                            |        &lt;li&gt;&lt;i class="icofont icofont-error close-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                            |      &lt;/ul&gt;
+                            |    &lt;/div&gt;
+                            |  &lt;/div&gt;
+                            |    &lt;div class="card-body"&gt;
+                            |      &lt;div class="table-responsive"&gt;
+                            |        &lt;table class="table table-bordernone"&gt;
+                            |          &lt;thead&gt;
+                            |            &lt;tr&gt;
+                            |              &lt;th&gt;Name&lt;/th&gt;
+                            |              &lt;th&gt;Date&lt;/th&gt;&lt;th&gt;Product&lt;/th&gt;
+                            |              &lt;th&gt;Total&lt;/th&gt;
+                            |              &lt;th&gt;Status&lt;/th&gt;
+                            |            &lt;/tr&gt;
+                            |          &lt;/thead&gt;
+                            |          &lt;tbody&gt;
+                            |            &lt;tr&gt;
+                            |              &lt;td&gt;
+                            |                &lt;div class="d-flex"&gt;
+                            |                  &lt;div class="icon"&gt;&lt;img class="img-fluid" src="../assets/images/dashboard-2/person1.png" alt="person1"/&gt;&lt;/div&gt;
+                            |                  &lt;div class="flex-grow-1"&gt;&lt;h5&gt;John Keter&lt;/h5&gt;
+                            |                  &lt;p&gt;2019&lt;/p&gt;
+                            |                  &lt;/div&gt;
+                            |                &lt;/div&gt;
+                            |              &lt;/td&gt;
+                            |              &lt;td&gt;&lt;h5&gt;06 August&lt;/h5&gt;&lt;/td&gt;
+                            |              &lt;td&gt;&lt;h5&gt;Brande Shoes&lt;/h5&gt;&lt;/td&gt;
+                            |              &lt;td&gt;&lt;h5&gt;$5,08,652 &lt;/h5&gt;&lt;/td&gt;
+                            |              &lt;td&gt;&lt;div class="status-showcase"&gt;&lt;p&gt;65%&lt;/p&gt;&lt;div class="progress progress-bg-success" style="height: 5px;"&gt;&lt;div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+                            |          &lt;/tr&gt;
+                            |          &lt;tr&gt;
+                            |            &lt;td&gt;&lt;div class="d-flex"&gt;&lt;div class="icon"&gt;&lt;img class="img-fluid" src="../assets/images/dashboard-2/person2.png" alt="person2"/&gt;&lt;/div&gt;&lt;div class="flex-grow-1"&gt;&lt;h5&gt;Harry Venter&lt;/h5&gt;&lt;p&gt;2020&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+                            |            &lt;td&gt;&lt;h5&gt;21 March&lt;/h5&gt;&lt;/td&gt;
+                            |            &lt;td&gt;&lt;h5&gt;Headphone&lt;/h5&gt;&lt;/td&gt;
+                            |            &lt;td&gt;&lt;h5&gt;$59,105 &lt;/h5&gt;&lt;/td&gt;
+                            |            &lt;td&gt;&lt;div class="status-showcase"&gt;&lt;p&gt;45%&lt;/p&gt;&lt;div class="progress progress-bg-warning" style="height: 5px;"&gt;&lt;div class="progress-bar" role="progressbar" style="width: 45%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+                            |          &lt;/tr&gt;
+                            |          &lt;tr&gt;
+                            |            &lt;td&gt;
+                            |              &lt;div class="d-flex"&gt;
+                            |                &lt;div class="icon"&gt;&lt;img class="img-fluid" src="../assets/images/dashboard-2/person3.png" alt="person3"/&gt;&lt;/div&gt;&lt;div class="flex-grow-1"&gt;&lt;h5&gt;Loadin Deo&lt;/h5&gt;&lt;p&gt;2020&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+                            |            &lt;td&gt;&lt;h5&gt;09 March&lt;/h5&gt;&lt;/td&gt;
+                            |            &lt;td&gt;&lt;h5&gt;Cell Phone&lt;/h5&gt;&lt;/td&gt;
+                            |            &lt;td&gt;&lt;h5&gt;$10,155 &lt;/h5&gt;&lt;/td&gt;
+                            |            &lt;td&gt;&lt;div class="status-showcase"&gt;&lt;p&gt;85%&lt;/p&gt;&lt;div class="progress progress-bg-danger" style="height: 5px;"&gt;&lt;div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+                            |          &lt;/tr&gt;
+                            |          &lt;tr&gt;
+                            |            &lt;td&gt;&lt;div class="d-flex"&gt;&lt;div class="icon"&gt;&lt;img class="img-fluid" src="../assets/images/dashboard-2/person4.png" alt="person4"/&gt;&lt;/div&gt;&lt;div class="flex-grow-1"&gt;&lt;h5&gt;Horen Hors&lt;/h5&gt;&lt;p&gt;2020&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+                            |            &lt;td&gt;&lt;h5&gt;14 February&lt;/h5&gt;&lt;/td&gt;
+                            |            &lt;td&gt; &lt;h5&gt;Fashion&lt;/h5&gt;&lt;/td&gt;
+                            |            &lt;td&gt; &lt;h5&gt;$90,568&lt;/h5&gt;&lt;/td&gt;
+                            |            &lt;td&gt;&lt;div class="status-showcase"&gt;&lt;p&gt;75%&lt;/p&gt;&lt;div class="progress progress-bg-info" style="height: 5px;"&gt;&lt;div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+                            |          &lt;/tr&gt;
+                            |          &lt;tr&gt;
+                            |            &lt;td&gt;
+                            |              &lt;div class="d-flex"&gt;&lt;div class="icon"&gt;&lt;img class="img-fluid" src="../assets/images/dashboard-2/person5.png" alt="person5"/&gt;&lt;/div&gt;&lt;div class="flex-grow-1"&gt;&lt;h5&gt;Fenter Jessy&lt;/h5&gt;&lt;p&gt;2020&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+                            |              &lt;td&gt;&lt;h5&gt;21 January&lt;/h5&gt;&lt;/td&gt;
+                            |              &lt;td&gt; &lt;h5&gt;Bookshop&lt;/h5&gt;&lt;/td&gt;
+                            |              &lt;td&gt; &lt;h5&gt;$10,652&lt;/h5&gt;&lt;/td&gt;
+                            |              &lt;td&gt;&lt;div class="status-showcase"&gt;&lt;p&gt;45%&lt;/p&gt;&lt;div class="progress progress-bg-warning" style="height: 5px;"&gt;&lt;div class="progress-bar" role="progressbar" style="width: 45%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+                            |          &lt;/tr&gt;
+                            |        &lt;/tbody&gt;
+                            |      &lt;/table&gt;
+                            |    &lt;/div&gt;
+                            |  &lt;/div&gt;
+                            |&lt;/div&gt;
+              
+              .col-xxl-4.col-xl-5.col-md-7.box-col-40
+                  .items-slider
+                    .col-xl-6.col-lg-6.col-md-6.col-sm-6
+                      .card.rated-product.bg-secondary
+                        .card-body                        
+                          .img-wrapper
+                              img.img-fluid(src="../assets/images/dashboard-2/wellington-shoes.png", alt="wellington-shoes")
+                              span.badge.badge-primary.rated-product-badge New
+                          .product-detail  
+                            a(href="product-page.html")
+                              h4 Wellington Shoes
+                            h3 $325.25
+                            ul.rating-star
+                              li                                       
+                                i.fa.fa-star
+                              li                                       
+                                i.fa.fa-star
+                              li                                       
+                                i.fa.fa-star
+                              li                                       
+                                i.fa.fa-star
+                              li                                       
+                                i.fa.fa-star
+                    .col-xl-6.col-lg-6.col-md-6.col-sm-6
+                      .card.rated-product.bg-primary
+                        .card-body
+                          .img-wrapper
+                            img.img-fluid(src="../assets/images/dashboard-2/apple-watch.png", alt="apple-watch")
+                            span.badge.badge-primary.rated-product-badge Hot
+                          .product-detail
+                            a(href="product-page.html")
+                              h4 Apple Smartwatch
+                            h3 $1185.99
+                            ul.rating-star
+                              li
+                                i.fa.fa-star
+                              li  
+                                i.fa.fa-star
+                              li  
+                                i.fa.fa-star
+                              li  
+                                i.fa.fa-star
+                              li  
+                                i.fa.fa-star
+                    .col-xl-6.col-lg-6.col-md-6.col-sm-6
+                      .card.rated-product.bg-secondary
+                        .card-body
+                          .img-wrapper
+                              img.img-fluid(src="../assets/images/dashboard-2/wellington-shoes.png", alt="wellington-shoes")
+                              span.badge.badge-primary.rated-product-badge new
+                          .product-detail
+                            a(href="product-page.html")
+                              h4 Wellington Shoes
+                            h3 $199.33
+                            ul.rating-star
+                              li
+                                i.fa.fa-star
+                              li
+                                i.fa.fa-star
+                              li
+                                i.fa.fa-star
+                              li
+                                i.fa.fa-star
+                              li
+                                i.fa.fa-star
+                    .col-xl-6.col-lg-6.col-md-6.col-sm-6
+                      .card.rated-product.bg-primary
+                        .card-body
+                          .img-wrapper
+                            img.img-fluid(src="../assets/images/dashboard-2/apple-watch.png", alt="apple-watch")
+                            span.badge.badge-primary.rated-product-badge Hot
+                          .product-detail
+                            a(href="product-page.html")
+                              h4 Apple Smartwatch
+                            h3 $990.50
+                            ul.rating-star
+                              li
+                                i.fa.fa-star
+                              li
+                                i.fa.fa-star
+                              li
+                                i.fa.fa-star
+                              li
+                                i.fa.fa-star
+                              li
+                                i.fa.fa-star
+                  .row                  
+                    .col-xl-12
+                      .card.product-review
+                        .card-body
+                          .d-flex
+                            .flex-shrink-0
+                              .img-wrapper
+                                img.img-fluid(src="../assets/images/dashboard-2/person1.png", alt="person1")
+                            .person-detail
+                              a(href="user-profile.html") 
+                                h4 Johanna Parvez
+                              ul.rating-star
+                                li                                       
+                                  i.fa.fa-star
+                                li                                       
+                                  i.fa.fa-star
+                                li                                       
+                                  i.fa.fa-star
+                                li                                       
+                                  i.fa.fa-star
+                                li                                       
+                                  i.fa.fa-star
+                              i.fa.fa-quote-right.fa-5x.quote-icon    
+                          .product-detail
+                            p
+                              | I love this good looking shoes, but comfort is where it’s at for Me. I can’t say how well they are for playing football , but for everyday wear they are amazing. I think they’re more comfortable than My lebron 17s.
+              
+              .col-xl-3.col-md-5.box-col-30
+                .card.weekend-view
+                  .card-body
+                    .inner-bg
+                    .img-wrapper 
+                      img.img-fluid(src="../assets/images/dashboard-2/headphone.png" , alt="headphone")
+                    .product-detail
+                      h3 Special Weekend Offer
+                      h5 Upto 50% Off Discount
+                      a.btn(href="list-products.html") See More
+          // Container-fluid Ends
+        include ../../components/footer        
+    include ../../components/footer-files

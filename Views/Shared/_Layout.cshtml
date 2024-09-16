@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Koho admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Koho admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="pixelstrap">
+    <link rel="icon" href="~/assets/images/favicon/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="~/assets/images/favicon/favicon.png" type="image/x-icon">
+    <title>Koho - Premium Admin Template</title>
+    <partial name="_Style" />
+    @RenderSection("Style", false)
+
+</head>
+<body class="@ViewBag.Bodyclass">
+    <partial name="_Loader" />
+    <div class="tap-top"><i data-feather="chevrons-up"></i></div>
+    <div class="page-wrapper compact-wrapper" id="pageWrapper">
+        <div class="page-body-wrapper sidebar-icon">
+            <partial name="_Header" />
+            <div class="page-body-wrapper">
+                <partial name="_SidePenal" />
+                <div class="page-body">
+                    <div class="container-fluid">
+                        <div class="page-title">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h3>@ViewBag.Title</h3>
+                                </div>
+                                <div class="col-6">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")"><i data-feather="home"></i></a></li>
+                                        <li class="breadcrumb-item">@ViewBag.Title</li>
+                                        <li class="breadcrumb-item active">@ViewBag.SubTitle</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row starter-main">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+                <partial name="IconMarkup" />
+                <partial name="_Footer" />
+            </div>
+        </div>
+    </div>
+    <script>
+        function emptyStr(str) {
+            return !str || !/[^\s]+/.test(str);
+        };
+
+    </script>
+    <script type="text/javascript">
+        var rootUrl = '@Url.Content("~")';
+    </script>
+    <partial name="_Script" />
+    <script src="~/assets/js/script.js"></script>
+    @RenderSection("Script", false)
+    <script>
+        $.fn.dataTable.ext.errMode = 'none';
+
+        $("#btn_logout").click(function () {
+            swal({
+                title: "Are you sure?",
+                text: "For Leave this page, you may need to log in again",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location.href = "@Url.Action("Logout", "Auth", new { area = "" })";
+                    } else {
+                        swal("Logout Canceled");
+                    }
+                });
+        })
+    </script>
+</body>
+
+</html>

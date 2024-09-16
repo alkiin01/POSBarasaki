@@ -1,0 +1,26 @@
+
+doctype html
+html(lang='en')
+    include ../../components/header-files
+    body
+        include ../../components/taptop
+        include ../../components/loader
+        // page-wrapper Start
+        .page-wrapper
+          // Maintenance start
+          .error-wrapper.maintenance-bg
+            .container
+              .row
+                .col-12
+                  .svg-wrapper
+                    img.maintenance-img(src="../assets/images/other-images/maintenance-image.svg" , alt="maintenance-image")
+                .maintenance-heading
+                  h2.headline MAINTENANCE
+                h4.sub-content
+                  | Our Site is Currently under maintenance We will be back Shortly
+                  br
+                  |                 Thank You For Patience
+                div
+                  a.btn.btn-primary(href='index.html') BACK TO HOME PAGE
+          // Maintenance end
+        include ../../components/footer-files
